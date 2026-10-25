@@ -1,0 +1,733 @@
+// Quizzes for Cases 11 to 20 (5 questions each = 50 questions)
+export const quizzesBatch2 = [
+  {
+    id: 11,
+    caseSlug: "cosmos-bank-cyber-heist",
+    title: "Cosmos Bank Pune Malware & ATM Switch Bypass Quiz",
+    description: "Test your understanding of ATM switch server hijacking, SWIFT fraud, IT Act Section 43/66, and banking security resilience.",
+    questions: [
+      {
+        id: "q11_1",
+        question: "How did attackers succeed in withdrawing ₹78 Crore from ATMs worldwide during the Cosmos Bank heist without actual account balances?",
+        options: [
+          "They physically blew up ATM cash boxes with explosives in Pune",
+          "They installed a rogue proxy switch server that intercepted authorization requests and returned forged approval codes to ATMs",
+          "They hacked every single ATM machine's firmware with a hardware thumb drive",
+          "They altered the bank's printed account ledger books by hand"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Attackers inserted a rogue switch server between the bank's core banking system and the payment gateway, forging approval responses ('Code 00') for cloned card withdrawals at ATMs globally.",
+        relatedTopic: "ATM Switch Server Interception"
+      },
+      {
+        id: "q11_2",
+        question: "Besides the ATM cash-outs, what other banking channel was compromised to steal an additional ₹13.9 Crore?",
+        options: [
+          "UPI QR code collect requests",
+          "Forged SWIFT financial messaging instructions to a bank in Hong Kong",
+          "Counterfeit paper bearer checks presented at branch tellers",
+          "Cryptocurrency smart contract drains"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Attackers generated 3 unauthorized SWIFT MT103 financial messages, transferring ₹13.9 Crore directly to an account at Hang Seng Bank in Hong Kong.",
+        relatedTopic: "SWIFT Financial Protocol Exploitation"
+      },
+      {
+        id: "q11_3",
+        question: "Under the Information Technology Act, 2000, which section specifically addresses damage, extraction, or destruction of computer systems and data?",
+        options: [
+          "Section 43 (Penalty and compensation for damage to computer system)",
+          "Section 79 (Exemption from liability of intermediary in certain cases)",
+          "Section 65 (Tampering with computer source documents only)",
+          "Section 81 (Act to have overriding effect)"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "Section 43 provides penalties and civil liability for unauthorized access, downloading, damage, disruption, or denial of access to any computer or computer network.",
+        relatedTopic: "IT Act Section 43 Provisions"
+      },
+      {
+        id: "q11_4",
+        question: "What baseline security measure mandated by RBI's Cyber Security Framework would have helped alert bank operators during the initial intrusion?",
+        options: [
+          "Continuous 24/7 Security Operations Center (SOC) monitoring and behavioral anomaly detection",
+          "Installing antivirus on employee home computers only",
+          "Sending paper letters to account holders whenever an ATM is used",
+          "Shutting down the internet connection every night"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "A proactive 24/7 SOC with real-time SIEM correlation detects unusual connection attempts, proxy redirection of core switches, and high-velocity international ATM spikes.",
+        relatedTopic: "RBI Cyber Security Framework for Banks"
+      },
+      {
+        id: "q11_5",
+        question: "What architectural defense prevents a compromised card switch from settling fraudulent transactions?",
+        options: [
+          "Allowing cards to be used without PINs",
+          "Real-time dual-channel cryptographic reconciliation between Core Banking (CBS) logs and Payment Switch ledgers",
+          "Printing transaction receipts in triplicate",
+          "Disabling ATM withdrawals on weekends"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Independent cryptographic cross-verification ensures that a payment gateway cannot debit settlement accounts without authenticated ledger verification from the core banking host.",
+        relatedTopic: "Core Banking Security Architecture"
+      }
+    ]
+  },
+  {
+    id: 12,
+    caseSlug: "equifax-credit-bureau-breach",
+    title: "Equifax Credit Bureau Apache Struts Breach Quiz",
+    description: "Evaluate your knowledge of open-source vulnerabilities (CVE-2017-5638), asset inventory controls, and FTC enforcement orders.",
+    questions: [
+      {
+        id: "q12_1",
+        question: "What specific software vulnerability did attackers exploit to breach Equifax's online dispute portal?",
+        options: [
+          "A weak default administrator password on the root database",
+          "CVE-2017-5638, a remote code execution vulnerability in the Apache Struts web framework",
+          "A zero-day hardware flaw in Intel processor chips",
+          "An unencrypted Bluetooth connection between office printers"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The breach exploited CVE-2017-5638 in Apache Struts, which allowed attackers to execute remote system commands via crafted Content-Type HTTP headers.",
+        relatedTopic: "Apache Struts CVE-2017-5638"
+      },
+      {
+        id: "q12_2",
+        question: "Why was Equifax's internal security team unable to detect the exfiltration of 147 million records for over two months?",
+        options: [
+          "The hackers turned off the power to the entire data center",
+          "An internal SSL inspection certificate on network monitoring devices had expired 19 months prior, leaving traffic analysis blind",
+          "Equifax had no internet connection installed",
+          "The attackers erased the backup tapes by hand"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Equifax's intrusion detection system failed to inspect encrypted traffic because an internal SSL certificate had expired 19 months earlier; once IT renewed it, the breach was discovered immediately.",
+        relatedTopic: "Certificate Management & Visibility"
+      },
+      {
+        id: "q12_3",
+        question: "What was the total monetary scope of the global settlement Equifax reached with the FTC, CFPB, and 50 states?",
+        options: [
+          "Up to $700 Million in consumer restitution, relief, and civil penalties",
+          "$5 Million in legal fees",
+          "$100 Million fine with no customer restitution",
+          "No financial penalty was assessed due to lack of proof"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "Equifax agreed to pay up to $700 Million to resolve federal and state investigations, funding free credit monitoring and direct restitution for affected consumers.",
+        relatedTopic: "FTC & CFPB Enforcement"
+      },
+      {
+        id: "q12_4",
+        question: "What foundational IT governance failure prevented Equifax from patching the Struts vulnerability when US-CERT warned about it?",
+        options: [
+          "They did not have any software developers on staff",
+          "They lacked an accurate asset and software inventory identifying which web servers were running Apache Struts",
+          "Microsoft refused to support their operating systems",
+          "Apache charges $1 Million per security patch"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Congressional investigations revealed Equifax lacked a centralized software inventory, meaning security teams did not know which external-facing servers actually ran vulnerable Apache Struts code.",
+        relatedTopic: "Software Asset Inventory Governance"
+      },
+      {
+        id: "q12_5",
+        question: "What protective step should consumers take if their Social Security Number or national ID is exposed in a credit bureau breach?",
+        options: [
+          "Place a free credit freeze on their credit files with all major bureaus to block unauthorized loans",
+          "Close all existing bank accounts and stop paying taxes",
+          "Throw away their physical driver's license card",
+          "Delete their email address and disconnect their home Wi-Fi"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "Placing a credit freeze prevents credit reporting agencies from releasing your credit report without authorization, preventing fraudsters from opening loans in your name.",
+        relatedTopic: "Consumer Identity Protection"
+      }
+    ]
+  },
+  {
+    id: 13,
+    caseSlug: "twitter-social-engineering-bitcoin-scam",
+    title: "Twitter VIP Account Takeover & Bitcoin Scam Quiz",
+    description: "Assess your understanding of voice phishing (vishing), admin tool segregation, and CFAA computer fraud statutes.",
+    questions: [
+      {
+        id: "q13_1",
+        question: "What social engineering technique did the teenage hackers use to obtain internal credentials from Twitter employees in 2020?",
+        options: [
+          "Sending malware through Slack file attachments",
+          "Voice phishing (vishing) phone calls pretending to be internal IT helpdesk staff assisting with remote-work VPN issues",
+          "Bribing Twitter data center security guards to enter the server room",
+          "Guessing employee birthday passwords on public login pages"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The attackers called remote-working customer service employees, impersonated Twitter's corporate IT department, and directed them to a spoofed VPN portal that harvested credentials and 2FA tokens.",
+        relatedTopic: "Voice Phishing (Vishing) Tactics"
+      },
+      {
+        id: "q13_2",
+        question: "What internal capability allowed the attackers to take over 45 high-profile accounts (including Obama, Musk, and Gates)?",
+        options: [
+          "Access to Twitter's proprietary internal administrative customer-support tool that could change registered email addresses",
+          "A cryptographic flaw in Twitter's password hashing algorithm",
+          "Direct control of physical cellular cell towers in San Francisco",
+          "A vulnerability in Apple iOS operating systems"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "The attackers gained access to an internal customer-support admin tool that possessed unrestricted 'god-mode' capabilities to reset account emails and disable multi-factor protections.",
+        relatedTopic: "Internal Admin Tool Over-Privileging"
+      },
+      {
+        id: "q13_3",
+        question: "Under the Computer Fraud and Abuse Act (18 U.S.C. § 1030), what crime was charged against the perpetrators for extorting Bitcoin?",
+        options: [
+          "Copyright infringement of software manuals",
+          "Conspiracy to commit wire fraud and intentional unauthorized access to a protected computer to perpetrate fraud",
+          "Maritime piracy on digital networks",
+          "Violation of federal securities registration laws"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The US Department of Justice and Florida state prosecutors charged the hackers with wire fraud, computer fraud under 18 U.S.C. § 1030, and organized fraudulent communication.",
+        relatedTopic: "CFAA 18 U.S.C. § 1030 Fraud Provisions"
+      },
+      {
+        id: "q13_4",
+        question: "What governance control would have prevented a single compromised employee account from resetting VIP Twitter handles?",
+        options: [
+          "Sending an automated email to the user",
+          "Dual-control / 'Four-Eyes' authorization requiring independent verification from a second senior administrator",
+          "Allowing only employees with computer science degrees to use computers",
+          "Requiring all employees to work exclusively from physical headquarters"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The 'Four-Eyes' principle (dual authorization) mandates that sensitive, high-risk administrative operations require mutual approval by two authorized staff members before execution.",
+        relatedTopic: "Dual Authorization & Access Governance"
+      },
+      {
+        id: "q13_5",
+        question: "Why are physical FIDO2 hardware security keys (e.g., YubiKeys) immune to voice phishing and reverse-proxy credential harvesting?",
+        options: [
+          "They have built-in biometric face scanners",
+          "They cryptographically bind authentication tokens to the authentic browser origin URL, refusing to authenticate on spoofed phishing domains",
+          "They disable internet access on the computer during login",
+          "They do not require any user interaction"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "FIDO2 WebAuthn keys bind cryptographic challenges to the exact TLS origin in the browser address bar. If a user is on a phishing site, the domain mismatch prevents token disclosure.",
+        relatedTopic: "FIDO2 Phishing-Resistant 2FA"
+      }
+    ]
+  },
+  {
+    id: 14,
+    caseSlug: "colonial-pipeline-ransomware",
+    title: "Colonial Pipeline Ransomware & Critical Infrastructure Quiz",
+    description: "Evaluate your knowledge of OT/IT convergence risks, legacy VPN entry points, CIRCIA reporting, and DarkSide ransomware.",
+    questions: [
+      {
+        id: "q14_1",
+        question: "What was the initial point of compromise that allowed the DarkSide ransomware group into Colonial Pipeline's corporate network?",
+        options: [
+          "A compromised supply chain update to the pipeline physical control valves",
+          "A single compromised password for an inactive, legacy VPN account that lacked multi-factor authentication (MFA)",
+          "An infected USB drive found in a parking lot",
+          "A physical break-in at a pipeline pumping station in New Jersey"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Attackers discovered a leaked password for a legacy virtual private network (VPN) account that was dormant but still active and did not have multi-factor authentication enabled.",
+        relatedTopic: "Legacy Remote Access & MFA Absence"
+      },
+      {
+        id: "q14_2",
+        question: "Why did Colonial Pipeline shut down its physical pipeline operations if the ransomware only infected the corporate IT network?",
+        options: [
+          "Because the physical pipeline pipes had exploded",
+          "Because the billing and accounting systems were encrypted, making it impossible to meter and bill customers for delivered fuel",
+          "Because the federal government ordered an immediate military evacuation of all pipelines",
+          "Because the pipeline was out of crude oil supply"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "While operational technology (OT) pumping systems were uninfected, Colonial could not bill commercial customers or track fuel volumes due to the loss of corporate IT billing software.",
+        relatedTopic: "OT / IT Interdependence"
+      },
+      {
+        id: "q14_3",
+        question: "How did the FBI successfully recover 63.7 of the 75 Bitcoin paid by Colonial Pipeline to the extortionists?",
+        options: [
+          "By hacking the Bitcoin blockchain consensus network and rewriting the ledger",
+          "By obtaining the private cryptographic key to the criminal syndicate's cryptocurrency wallet address",
+          "By asking the Russian government to wire the money back",
+          "By suing the cryptocurrency mining pools in court"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The FBI tracked the ransom payments through the public blockchain and seized the funds after acquiring the private cryptographic keys for the specific digital wallet holding the extortion proceeds.",
+        relatedTopic: "Cryptocurrency Asset Recovery"
+      },
+      {
+        id: "q14_4",
+        question: "What historic federal legislation was enacted by the US Congress in 2022 directly following the Colonial Pipeline incident?",
+        options: [
+          "The Computer Fraud and Abuse Act Amendment",
+          "The Cyber Incident Reporting for Critical Infrastructure Act (CIRCIA)",
+          "The Patriot Act Extension",
+          "The National Data Privacy and Shield Act"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "CIRCIA mandates that critical infrastructure operators report substantial cyber incidents to CISA within 72 hours and any ransomware extortion payments within 24 hours.",
+        relatedTopic: "CIRCIA Incident Reporting Act"
+      },
+      {
+        id: "q14_5",
+        question: "What architectural principle ensures that operational infrastructure can continue pumping safely during a corporate IT outage?",
+        options: [
+          "Full cloud migration of all industrial motors",
+          "Architectural decoupling of OT and IT networks with offline manual operation capability",
+          "Sharing domain admin accounts between office laptops and factory controllers",
+          "Connecting all pipeline pressure valves to the corporate email server"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Air-gapping or strictly segmenting OT industrial control systems from business IT, combined with validated manual override procedures, ensures essential service continuity.",
+        relatedTopic: "Industrial OT / IT Decoupling"
+      }
+    ]
+  },
+  {
+    id: 15,
+    caseSlug: "aiims-delhi-ransomware-attack",
+    title: "AIIMS Delhi Healthcare Ransomware Incident Quiz",
+    description: "Test your comprehension of healthcare infrastructure cyber threats, IT Act Section 66F cyber terrorism, and CERT-In directions.",
+    questions: [
+      {
+        id: "q15_1",
+        question: "What critical hospital systems were paralyzed during the November 2022 ransomware attack on AIIMS New Delhi?",
+        options: [
+          "Physical operating room surgical lights",
+          "Centralized e-Hospital servers managing outpatient registrations, lab report generation, patient admissions, and billing",
+          "Ambulance engine braking controls",
+          "Hospital cafeteria automated vending machines"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The ransomware encrypted database servers hosted by the National Informatics Centre (NIC), knocking out electronic health records, lab reports, digital billing, and OPD registrations.",
+        relatedTopic: "Healthcare Critical Systems"
+      },
+      {
+        id: "q15_2",
+        question: "Which severe penal provision of the Information Technology Act, 2000 was invoked in the police FIR registered for the AIIMS attack?",
+        options: [
+          "Section 43A (Corporate compensation)",
+          "Section 66F (Punishment for Cyber Terrorism)",
+          "Section 67 (Obscenity)",
+          "Section 72 (Breach of confidentiality)"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Delhi Police IFSO registered the case under Section 66F (Cyber Terrorism), which carries up to life imprisonment for acts intentionally disrupting critical infrastructure or state health delivery.",
+        relatedTopic: "IT Act Section 66F (Cyber Terrorism)"
+      },
+      {
+        id: "q15_3",
+        question: "Under the CERT-In Cyber Security Directions issued in April 2022, within what mandatory timeframe must organizations report cybersecurity incidents?",
+        options: [
+          "Within 6 hours of noticing the incident",
+          "Within 30 calendar days",
+          "Within 1 year of forensic conclusion",
+          "Reporting is entirely voluntary under Indian law"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "The CERT-In Directions issued under Section 70B(6) of the IT Act mandate that all service providers, intermediaries, data centers, and government entities report cyber incidents within 6 hours.",
+        relatedTopic: "CERT-In 6-Hour Reporting Mandate"
+      },
+      {
+        id: "q15_4",
+        question: "How did AIIMS clinical staff maintain patient care throughout the two-week digital blackout?",
+        options: [
+          "They sent all 12,000 daily patients to private clinics",
+          "They instituted emergency manual protocols, using paper registers, physical charts, and hand-carried lab slips",
+          "They paid the attackers' ransom within 24 hours to restore the servers",
+          "They stopped admitting all emergency trauma cases"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Hospital administration deployed hundreds of additional staff to run a completely manual paper-based workflow for registration, triage, and hand-delivered laboratory results.",
+        relatedTopic: "Business Continuity & Manual Fallbacks"
+      },
+      {
+        id: "q15_5",
+        question: "What architectural flaw in university and hospital campus networks frequently exposes healthcare servers to malware?",
+        options: [
+          "Using fiber optic cables",
+          "Inadequate network segmentation between academic/research Wi-Fi, administrative PCs, and core clinical databases",
+          "Using Linux operating systems instead of Windows",
+          "Having too many physical emergency exits in the building"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Failing to segment general student/faculty campus networks from critical clinical databases allows malware from an unpatched student workstation to move laterally into vital hospital systems.",
+        relatedTopic: "Campus Network Segmentation"
+      }
+    ]
+  },
+  {
+    id: 16,
+    caseSlug: "google-account-phishing-campaigns",
+    title: "Mass Google OAuth Worm & Account Phishing Quiz",
+    description: "Evaluate your understanding of consent phishing, OAuth 2.0 token grants, API scopes, and authorization safeguards.",
+    questions: [
+      {
+        id: "q16_1",
+        question: "How did the May 2017 'Google Docs' phishing campaign bypass traditional password theft and multi-factor authentication?",
+        options: [
+          "By guessing passwords using quantum computers",
+          "By tricking users into granting legitimate OAuth 2.0 access tokens to a rogue third-party app deceptively named 'Google Docs'",
+          "By spoofing Google's global satellite uplink stations",
+          "By sending infected USB keys through postal mail"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The attack used 'consent phishing'. Users authenticated legitimately on real Google servers, but authorized a malicious third-party app named 'Google Docs' that was granted API tokens to read emails and contacts.",
+        relatedTopic: "OAuth 2.0 Consent Phishing"
+      },
+      {
+        id: "q16_2",
+        question: "How did the rogue application spread automatically across millions of inboxes in under an hour?",
+        options: [
+          "It exploited a kernel zero-day on Android phones",
+          "Once granted mailbox permissions, it programmatically read the victim's contact book and emailed the same phishing invitation to all contacts via the Google API",
+          "It bought advertising space on Google Search results",
+          "It hacked internet service provider routers"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Because the rogue app had legitimate programmatic API access to the victim's contacts and mailbox, it functioned as an automated worm, blasting invitations to all contacts immediately.",
+        relatedTopic: "API Worm Propagation"
+      },
+      {
+        id: "q16_3",
+        question: "What major platform security policy did Google implement in response to the rogue OAuth campaign?",
+        options: [
+          "Discontinuing all third-party integrations with Google services",
+          "Requiring mandatory developer verification, domain audits, and explicit warning screens for unverified apps requesting sensitive scopes",
+          "Banning all Google Docs sharing links",
+          "Making all Google accounts paid subscriptions"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Google overhauled its OAuth verification process, requiring strict multi-stage security verification and brand validation before apps can request access to sensitive Gmail or Drive scopes.",
+        relatedTopic: "Google OAuth Verification Policies"
+      },
+      {
+        id: "q16_4",
+        question: "When reviewing an OAuth consent prompt, what detail reveals the true identity of the requesting application?",
+        options: [
+          "The font size used for the title",
+          "Clicking on the developer or app name to inspect the registered developer email address and actual web domain",
+          "The color of the 'Allow' button",
+          "The time of day the prompt appears"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Clicking the app name in legitimate OAuth consent dialogs reveals developer metadata, domain ownership, and whether Google has independently verified the developer.",
+        relatedTopic: "User Consent Verification"
+      },
+      {
+        id: "q16_5",
+        question: "What administrative control can enterprise IT administrators enforce to protect corporate Google Workspace domains from illicit OAuth apps?",
+        options: [
+          "Enforce OAuth app whitelisting to block non-approved third-party apps from accessing corporate data",
+          "Disable all employee monitor screens at 5 PM",
+          "Prohibit employees from sending emails outside the company",
+          "Change the company website domain weekly"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "Workspace administrators can configure App Access Controls to restrict third-party API access exclusively to trusted, admin-approved applications, neutralizing rogue consent grants.",
+        relatedTopic: "Workspace App Access Controls"
+      }
+    ]
+  },
+  {
+    id: 17,
+    caseSlug: "sim-swap-telecom-fraud",
+    title: "SIM Swap OTP Interception & Account Takeover Quiz",
+    description: "Assess your knowledge of mobile identity theft, SMS 2FA vulnerabilities, DoT cooling regulations, and account hardening.",
+    questions: [
+      {
+        id: "q17_1",
+        question: "How do cybercriminals execute a fraudulent SIM swap attack?",
+        options: [
+          "By cloning the victim's phone screen using Bluetooth sniffing",
+          "By impersonating the victim using fake or stolen ID documents at telecom stores or helpdesks to transfer the phone number to an attacker-controlled SIM card",
+          "By hacking into cellular satellites orbiting the earth",
+          "By purchasing physical SIM cards in bulk from online retailers"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Perpetrators use stolen demographic info (Aadhaar, PAN, billing details) to deceive customer care staff into reissuing the victim's mobile number onto a new blank SIM card.",
+        relatedTopic: "SIM Swapping Attack Mechanics"
+      },
+      {
+        id: "q17_2",
+        question: "What is the immediate symptom experienced by a victim when an unauthorized SIM swap occurs on their phone?",
+        options: [
+          "The phone battery percentage jumps to 100%",
+          "The phone abruptly loses all cellular network connectivity ('No Service' or emergency calls only)",
+          "All stored photos on the phone are automatically deleted",
+          "The phone switches its default language to Spanish"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Because a cellular network only allows one physical SIM card to register a given phone number at a time, the legitimate SIM is instantly deactivated, causing sudden loss of cellular signal.",
+        relatedTopic: "SIM Swap Early Warning Signs"
+      },
+      {
+        id: "q17_3",
+        question: "What regulatory countermeasure was mandated by India's Department of Telecommunications (DoT) to curb SIM-swap banking fraud?",
+        options: [
+          "Banning all prepaid mobile phone connections nationwide",
+          "Enforcing a mandatory 24-hour freeze on incoming and outgoing SMS services following any SIM upgrade or replacement",
+          "Requiring all phone calls to be recorded by banks",
+          "Limiting mobile phone usage to one SIM per family"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "DoT mandated that when a SIM card is upgraded or replaced, SMS services are disabled for 24 hours, giving the legitimate owner time to notice the swap before OTPs can be intercepted.",
+        relatedTopic: "DoT Telecom KYC & Cool-Off Directives"
+      },
+      {
+        id: "q17_4",
+        question: "Why do cybersecurity experts strongly recommend replacing SMS-based two-factor authentication with authenticator apps?",
+        options: [
+          "SMS messages use too much mobile data",
+          "Authenticator apps generate time-based codes locally on the physical device and are completely unaffected by telecom SIM swapping",
+          "SMS codes are only valid for 10 seconds",
+          "Authenticator apps are sponsored by banks"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Time-based One-Time Password (TOTP) apps (like Google Authenticator) rely on a secret seed stored securely in the device's hardware, rendering them immune to cellular SIM swaps.",
+        relatedTopic: "TOTP vs SMS Authentication"
+      },
+      {
+        id: "q17_5",
+        question: "If your phone suddenly displays 'No Service' while in an area with good coverage, what should you do immediately?",
+        options: [
+          "Wait 48 hours to see if the signal returns naturally",
+          "Contact your mobile telecom operator immediately from another device to check if a SIM replacement request was initiated",
+          "Throw away the phone and buy a new number",
+          "Reboot the phone repeatedly until the battery drains"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Immediate response is critical. Contacting your telecom provider allows you to halt unauthorized SIM porting or deactivate the hijacked number before criminals drain financial accounts.",
+        relatedTopic: "Incident Response for SIM Swap"
+      }
+    ]
+  },
+  {
+    id: 18,
+    caseSlug: "uber-breach-extortion-coverup",
+    title: "Uber Data Breach Cover-up & Bug Bounty Extortion Quiz",
+    description: "Evaluate your understanding of breach disclosure laws, personal CISO criminal liability, bug bounty ethics, and 18 U.S.C. § 1505.",
+    questions: [
+      {
+        id: "q18_1",
+        question: "How did Uber's security team conceal a 2016 breach involving 57 million customer and driver records?",
+        options: [
+          "By deleting all corporate emails and server backups",
+          "By paying the extortionists $100,000 disguised as an ethical 'bug bounty' reward and making them sign non-disclosure agreements",
+          "By blaming the breach on an imaginary software vendor",
+          "By claiming the stolen data belonged to a competitor"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Uber funneled a $100,000 extortion payment to the hackers through HackerOne's bug bounty platform, pretending it was a legitimate vulnerability reward and requiring NDAs to hide the intrusion.",
+        relatedTopic: "Breach Concealment & Bounty Abuse"
+      },
+      {
+        id: "q18_2",
+        question: "What historic legal milestone occurred in October 2022 regarding Uber's former Chief Security Officer (Joe Sullivan)?",
+        options: [
+          "He was awarded a medal by the US Federal Trade Commission",
+          "He was found guilty by a federal jury of obstruction of justice and misprision of a felony for covering up the breach from regulators",
+          "He was appointed as Director of the FBI",
+          "He was granted complete sovereign immunity by the President"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Joe Sullivan was convicted in federal court of obstructing an FTC proceeding and concealing a felony—marking the first time a corporate security executive faced criminal conviction for breach response actions.",
+        relatedTopic: "CISO Criminal Liability Landmark"
+      },
+      {
+        id: "q18_3",
+        question: "Why was Uber under heightened legal scrutiny from the FTC at the exact moment the 2016 breach took place?",
+        options: [
+          "Because Uber was applying for a banking charter",
+          "Because the FTC was actively investigating Uber for a previous 2014 data breach regarding inadequate employee access controls",
+          "Because Uber was merging with a rival ride-hailing company",
+          "Because Uber was under a criminal tax evasion audit"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "CSO Sullivan concealed the 2016 incident specifically because Uber was already undergoing an active FTC investigation into its cybersecurity practices following a prior 2014 breach.",
+        relatedTopic: "Obstruction of Federal Proceedings (18 U.S.C. § 1505)"
+      },
+      {
+        id: "q18_4",
+        question: "How did the hackers initially obtain access to Uber's Amazon Web Services (AWS) database backups?",
+        options: [
+          "By breaking into Amazon's physical data center in Virginia",
+          "By finding unencrypted AWS credentials and access keys embedded in code stored in an Uber engineer's GitHub repository",
+          "By guessing the password on the AWS root login page",
+          "By intercepting satellite communications from Uber drivers"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Attackers discovered hardcoded AWS credentials stored in a private GitHub code repository accessible to Uber developers, using those keys to access S3 database backups.",
+        relatedTopic: "Hardcoded Credentials & Secrets Hygiene"
+      },
+      {
+        id: "q18_5",
+        question: "What key lesson must corporate leadership take from the Uber prosecution regarding incident response?",
+        options: [
+          "Paying bounties is the best way to handle any data extortion",
+          "Cybersecurity incident response must prioritize legal transparency and mandatory statutory disclosure over brand reputation management",
+          "Never hire a Chief Information Security Officer",
+          "All software code must be written on offline paper notebooks"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Corporate executives cannot use legal mechanisms or non-disclosure agreements to conceal criminal breaches from government regulators and the public without risking severe personal criminal prosecution.",
+        relatedTopic: "Corporate Cybersecurity Governance"
+      }
+    ]
+  },
+  {
+    id: 19,
+    caseSlug: "pegasus-spyware-surveillance",
+    title: "Pegasus Zero-Click Spyware Surveillance Inquiry Quiz",
+    description: "Test your comprehension of zero-click exploits (FORCEDENTRY), constitutional privacy jurisprudence, and state surveillance limits.",
+    questions: [
+      {
+        id: "q19_1",
+        question: "What differentiates a 'zero-click' exploit like Pegasus from conventional phishing attacks?",
+        options: [
+          "It only works on computers with external computer mice",
+          "It infects the target mobile device without requiring any interaction, clicking, or link-opening by the victim",
+          "It requires the victim to click ten different pop-up ads",
+          "It only infects devices when the user is asleep"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Zero-click exploits exploit background processing routines (such as image or PDF parsers in messaging apps) to execute shellcode silently without requiring the user to tap or open anything.",
+        relatedTopic: "Zero-Click Exploit Engineering"
+      },
+      {
+        id: "q19_2",
+        question: "What landmark nine-judge Constitution Bench judgment of the Supreme Court of India established the fundamental right to privacy?",
+        options: [
+          "Shreya Singhal v. Union of India (2015)",
+          "Justice K.S. Puttaswamy (Retd.) v. Union of India (2017)",
+          "Vishaka v. State of Rajasthan (1997)",
+          "Kesavananda Bharati v. State of Kerala (1973)"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "In Justice K.S. Puttaswamy (2017), the Supreme Court unanimously declared the right to privacy an intrinsic part of the fundamental right to life and personal liberty under Article 21.",
+        relatedTopic: "Puttaswamy Privacy Judgment"
+      },
+      {
+        id: "q19_3",
+        question: "In the Pegasus matter (Manohar Lal Sharma v. Union of India, 2021), what did the Supreme Court state regarding the government's claim of national security?",
+        options: [
+          "National security claims grant total immunity from any judicial oversight",
+          "The state cannot get a free pass merely by raising the phantom of national security without providing substantiated facts to the court",
+          "The court has no jurisdiction to examine cyber weapons",
+          "Only the United Nations can investigate spyware"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The Supreme Court ruled that while national security is paramount, the state does not get a 'free pass' merely by uttering 'national security' to evade judicial scrutiny into privacy violations.",
+        relatedTopic: "Judicial Review of State Surveillance"
+      },
+      {
+        id: "q19_4",
+        question: "What specific iOS feature did Apple introduce to defend human rights defenders and journalists from targeted commercial spyware like Pegasus?",
+        options: [
+          "Apple Pay Later",
+          "Lockdown Mode, which severely restricts complex web fonts, message attachments, and shared photo albums",
+          "AirDrop Everywhere Mode",
+          "Dynamic Island notifications"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Apple's Lockdown Mode disables complex message attachment parsing, blocks incoming FaceTime invitations from unknown callers, and disables JIT compilation to eliminate zero-click attack surface.",
+        relatedTopic: "Lockdown Mode Defense"
+      },
+      {
+        id: "q19_5",
+        question: "Under the three-fold test established in Puttaswamy, what three criteria must any state infringement on privacy satisfy?",
+        options: [
+          "Speed, secrecy, and cost-effectiveness",
+          "Legality (existence of a law), Legitimate Aim (necessity), and Proportionality (least intrusive means)",
+          "Presidential decree, military approval, and cabinet voting",
+          "Bipartisan consensus, UN certification, and police FIR"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Any state interference with privacy must satisfy legality (statutory backing), need (a legitimate state goal), and proportionality (the measure must not be excessive relative to the objective).",
+        relatedTopic: "Three-Fold Proportionality Test"
+      }
+    ]
+  },
+  {
+    id: 20,
+    caseSlug: "aadhaar-biometric-security-inquiry",
+    title: "Aadhaar Biometric System Security & Privacy Quiz",
+    description: "Assess your knowledge of biometric data protections, Masked Aadhaar, the Aadhaar Act 2016, and Section 57 striking down.",
+    questions: [
+      {
+        id: "q20_1",
+        question: "Why is biometric data (fingerprints and iris scans) considered fundamentally distinct from passwords in identity systems?",
+        options: [
+          "Biometrics expire automatically after 6 months",
+          "Biometric identifiers are immutable and permanent; once compromised or leaked, they cannot be reset, rotated, or changed like a password",
+          "Biometrics can only be processed using mainframe computers",
+          "Biometrics are public records accessible to any citizen"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Unlike alphanumeric passwords or tokens that can be revoked and reissued, a person's biological fingerprints and retinas are immutable attributes that cannot be reset if compromised.",
+        relatedTopic: "Biometric Data Permanence"
+      },
+      {
+        id: "q20_2",
+        question: "What major part of the Aadhaar Act, 2016 was struck down as unconstitutional by the 5-judge Constitution Bench in 2018?",
+        options: [
+          "Section 7, which mandated Aadhaar for government welfare subsidies",
+          "Section 57, which permitted private corporations and telecom entities to mandatorily demand Aadhaar authentication for services",
+          "The entire Aadhaar project was declared completely illegal and ordered shut down",
+          "The provision permitting children to attend school"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "The Supreme Court struck down Section 57 of the Aadhaar Act, ruling that private commercial entities (like private banks, telecom operators, and schools) cannot compel citizens to submit Aadhaar.",
+        relatedTopic: "Section 57 Aadhaar Act Ruling"
+      },
+      {
+        id: "q20_3",
+        question: "What privacy-preserving tool did UIDAI introduce to allow citizens to share their Aadhaar card while concealing the first 8 digits?",
+        options: [
+          "Laminated Aadhaar",
+          "Masked Aadhaar (which displays only the last four digits, e.g. XXXX XXXX 1234)",
+          "Aadhaar Passport",
+          "Digital Signature Token"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Masked Aadhaar replaces the first 8 digits of the 12-digit number with 'XXXX XXXX', obscuring the permanent identifier while retaining validity for KYC verification.",
+        relatedTopic: "Masked Aadhaar Privacy Feature"
+      },
+      {
+        id: "q20_4",
+        question: "What protective mechanism inside the official mAadhaar application allows users to prevent unauthorized biometric authentication?",
+        options: [
+          "Biometric Lock / Unlock, which temporarily freezes fingerprint and iris authentication until unlocked by the user",
+          "Deleting the Aadhaar database from the phone",
+          "Changing the fingerprint scan to an emoji",
+          "Disconnecting the SIM card permanently"
+        ],
+        correctAnswerIndex: 0,
+        explanation: "The Biometric Lock feature allows users to lock their biometric credentials in the CIDR. Any authentication request made while locked will be rejected until the user unlocks it.",
+        relatedTopic: "UIDAI Biometric Lock Feature"
+      },
+      {
+        id: "q20_5",
+        question: "Under Section 29 of the Aadhaar Act, 2016, what strict prohibition is placed on core biometric information?",
+        options: [
+          "Core biometric information can be shared freely with any private marketing agency",
+          "Core biometric information shall never be shared with anyone for any reason whatsoever or used for any purpose other than authentication",
+          "Core biometric information must be published on public gazettes",
+          "Core biometric data is sold to credit rating agencies"
+        ],
+        correctAnswerIndex: 1,
+        explanation: "Section 29 strictly bars the sharing, publishing, or displaying of core biometric information for any reason whatsoever, creating stringent criminal liability for unauthorized disclosure.",
+        relatedTopic: "Section 29 Aadhaar Act Security Guarantees"
+      }
+    ]
+  }
+];

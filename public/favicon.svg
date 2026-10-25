@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <path d="M50 12 L85 80 L67 80 L50 45 L33 80 L15 80 Z" fill="#4285F4"/>
+  <path d="M50 12 L65 42 L50 45 L35 42 Z" fill="#4285F4"/>
+  <path d="M15 80 L33 80 L40 66 L25 66 Z" fill="#EA4335"/>
+  <path d="M40 66 L50 86 L60 66 L50 72 Z" fill="#FBBC05"/>
+  <path d="M67 80 L85 80 L75 66 L60 66 Z" fill="#34A853"/>
+  <polygon points="50,16 82,78 68,78 50,42 32,78 18,78" fill="url(#agiesGrad)"/>
+  <defs>
+    <linearGradient id="agiesGrad" x1="18" y1="16" x2="82" y2="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="35%" stop-color="#34A853"/>
+      <stop offset="70%" stop-color="#FBBC05"/>
+      <stop offset="100%" stop-color="#EA4335"/>
+    </linearGradient>
+  </defs>
+</svg>
