@@ -38,47 +38,11 @@ export default function HomePage() {
 
           <div className="hero-visual-col">
             <div className="hero-visual-frame">
-              {/* Modern Cyber Vector Graphic */}
-              <svg className="hero-visual-svg" viewBox="0 0 520 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="heroBg" x1="0" y1="0" x2="520" y2="340" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#0B132B"/>
-                    <stop offset="50%" stopColor="#1C2541"/>
-                    <stop offset="100%" stopColor="#3A506B"/>
-                  </linearGradient>
-                  <linearGradient id="meshGrad" x1="0" y1="0" x2="520" y2="340" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#4285F4" stopOpacity="0.4"/>
-                    <stop offset="100%" stopColor="#34A853" stopOpacity="0.2"/>
-                  </linearGradient>
-                </defs>
-                <rect width="520" height="340" rx="20" fill="url(#heroBg)"/>
-                
-                {/* Cyber Grid Lines */}
-                <path d="M0 60 H520 M0 120 H520 M0 180 H520 M0 240 H520 M0 300 H520" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
-                <path d="M60 0 V340 M140 0 V340 M220 0 V340 M300 0 V340 M380 0 V340 M460 0 V340" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
-                
-                {/* Hooded Figure & Terminal Silhouette */}
-                <ellipse cx="260" cy="270" rx="90" ry="70" fill="#0B1120"/>
-                <path d="M220 220 C220 170 300 170 300 220 C300 245 285 270 260 270 C235 270 220 245 220 220 Z" fill="#1E293B"/>
-                <path d="M225 210 C235 180 285 180 295 210 C290 225 280 235 260 235 C240 235 230 225 225 210 Z" fill="#0F172A"/>
-                
-                {/* Glowing Laptop Display */}
-                <polygon points="190,285 330,285 350,320 170,320" fill="#334155"/>
-                <rect x="200" y="225" width="120" height="60" rx="4" fill="#0EA5E9" fillOpacity="0.2" stroke="#38BDF8" strokeWidth="2"/>
-                <line x1="215" y1="240" x2="265" y2="240" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="215" y1="250" x2="295" y2="250" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="215" y1="260" x2="245" y2="260" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round"/>
-                
-                {/* Glowing Network Nodes */}
-                <circle cx="80" cy="80" r="4" fill="#4285F4"/>
-                <circle cx="140" cy="130" r="3" fill="#34A853"/>
-                <circle cx="420" cy="90" r="5" fill="#FBBC05"/>
-                <circle cx="450" cy="180" r="4" fill="#EA4335"/>
-                <line x1="80" y1="80" x2="140" y2="130" stroke="#4285F4" strokeOpacity="0.4" strokeWidth="1.5"/>
-                <line x1="140" y1="130" x2="210" y2="160" stroke="#34A853" strokeOpacity="0.4" strokeWidth="1.5"/>
-                <line x1="420" y1="90" x2="350" y2="140" stroke="#FBBC05" strokeOpacity="0.4" strokeWidth="1.5"/>
-                <line x1="420" y1="90" x2="450" y2="180" stroke="#EA4335" strokeOpacity="0.4" strokeWidth="1.5"/>
-              </svg>
+              <img 
+                src="/images/illustrations/home-hero-banner.png" 
+                alt="AGIES Cybercrime Case Study Platform Banner" 
+                className="hero-banner-image"
+              />
 
               {/* Floating Hero Badge */}
               <div className="hero-floating-card">

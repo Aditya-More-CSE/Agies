@@ -13,7 +13,12 @@ import {
   ArrowRight, 
   ExternalLink,
   CheckCircle,
-  HelpCircle
+  HelpCircle,
+  Info,
+  ShieldAlert,
+  Terminal,
+  CheckCircle2,
+  Lock
 } from 'lucide-react';
 import casesData from '../data/cases.json';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -58,11 +63,13 @@ export default function CaseDetailPage() {
 
   const sections = [
     { id: 'overview', label: 'Overview' },
+    { id: 'narrative', label: 'Detailed Narrative' },
+    { id: 'how-it-happened', label: 'How It Happened' },
     { id: 'timeline', label: 'Timeline' },
-    { id: 'topics', label: 'Threat Topics' },
+    { id: 'topics', label: 'Threat Concepts' },
     { id: 'law', label: 'The Law' },
-    { id: 'impact', label: 'Impact' },
-    { id: 'lessons', label: 'Key Lessons' },
+    { id: 'impact', label: 'Impact & Outcome' },
+    { id: 'lessons', label: 'Lessons & Takeaways' },
     { id: 'resources', label: 'References' },
     { id: 'quiz', label: 'Case Quiz' },
   ];
@@ -89,19 +96,28 @@ export default function CaseDetailPage() {
         {/* Section A: Case Header */}
         <header className="case-article-header">
           <div className="case-header-meta-row">
-            <span className={`pill-badge badge-${caseItem.category.toLowerCase().replace(/\s+/g, '-')}`}>
-              {caseItem.category}
-            </span>
+            <div className="case-badge-cluster">
+              <span className={`pill-badge badge-${caseItem.category.toLowerCase().replace(/\s+/g, '-')}`}>
+                {caseItem.category}
+              </span>
+              {caseItem.isFictional && (
+                <span className="pill-badge badge-fictional-case">
+                  <AlertTriangle size={13} /> Fictional Educational Case Study
+                </span>
+              )}
+            </div>
+
             <div className="case-header-actions">
               <button 
                 type="button" 
                 className={`action-pill-btn ${bookmarked ? 'active' : ''}`}
                 onClick={() => toggleBookmark(caseItem.slug)}
+                aria-label={bookmarked ? "Remove bookmark" : "Bookmark this case"}
               >
                 <Bookmark size={15} fill={bookmarked ? "currentColor" : "none"} />
                 <span>{bookmarked ? 'Saved' : 'Bookmark'}</span>
               </button>
-              <button type="button" className="action-pill-btn" onClick={handleShare}>
+              <button type="button" className="action-pill-btn" onClick={handleShare} aria-label="Share case link">
                 <Share2 size={15} />
                 <span>{copied ? 'Link Copied!' : 'Share'}</span>
               </button>
@@ -109,8 +125,23 @@ export default function CaseDetailPage() {
           </div>
 
           <h1 className="case-article-title">{caseItem.title}</h1>
+          {caseItem.subtitle && (
+            <p className="case-article-subtitle">{caseItem.subtitle}</p>
+          )}
           <p className="case-article-intro">{caseItem.introduction}</p>
 
+          {/* Mandatory Educational Disclaimer */}
+          <div className="educational-disclaimer-box" role="note" aria-label="Educational Disclaimer">
+            <div className="disclaimer-title-row">
+              <ShieldAlert size={18} className="disclaimer-icon text-amber" />
+              <strong>Educational Disclaimer</strong>
+            </div>
+            <p className="disclaimer-copy">
+              These scenarios are fictional and intended for educational purposes only. Legal analysis is illustrative and does not constitute legal advice.
+            </p>
+          </div>
+
+          {/* Key Facts Bar */}
           <div className="case-key-details-bar">
             <div className="key-detail-item">
               <Calendar size={16} className="detail-icon" />
@@ -186,15 +217,86 @@ export default function CaseDetailPage() {
 
           {/* Continuous Editorial Body */}
           <main className="case-article-body">
-            {/* Section B: Overview */}
+            {/* Section B: Overview & Simulation Parameters */}
             <section id="overview" className="article-section">
               <h2 className="section-title">Incident Overview</h2>
               <div className="editorial-prose">
                 <p>{caseItem.overview}</p>
               </div>
+
+              {caseItem.fictionalContext && (
+                <div className="fictional-context-box">
+                  <div className="context-box-header">
+                    <Info size={16} className="context-info-icon" />
+                    <h3 className="context-box-title">Simulated Scenario Parameters</h3>
+                  </div>
+                  <div className="context-grid">
+                    {Object.entries(caseItem.fictionalContext).map(([k, v]) => (
+                      <div key={k} className="context-item">
+                        <span className="context-key">
+                          {k.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                        </span>
+                        <span className="context-val">{v}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
 
-            {/* Section C: Timeline */}
+            {/* Section C: Detailed Narrative */}
+            {caseItem.narrative && (
+              <section id="narrative" className="article-section">
+                <h2 className="section-title">In-Depth Case Study Narrative</h2>
+                <div className="editorial-prose narrative-text">
+                  {caseItem.narrative.split('\n\n').map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Section D: How It Happened (Technical Vectors) */}
+            {caseItem.howItHappened && (
+              <section id="how-it-happened" className="article-section">
+                <h2 className="section-title">How It Happened: Technical Analysis</h2>
+                <div className="technical-breakdown-card">
+                  <div className="tech-item">
+                    <div className="tech-item-header">
+                      <Terminal size={16} className="tech-icon" />
+                      <strong>Primary Attack Vector</strong>
+                    </div>
+                    <p>{caseItem.howItHappened.attackVector}</p>
+                  </div>
+
+                  <div className="tech-item">
+                    <div className="tech-item-header">
+                      <AlertTriangle size={16} className="tech-icon" />
+                      <strong>Systemic Vulnerability Exploited</strong>
+                    </div>
+                    <p>{caseItem.howItHappened.vulnerability}</p>
+                  </div>
+
+                  <div className="tech-item">
+                    <div className="tech-item-header">
+                      <Lock size={16} className="tech-icon" />
+                      <strong>Technical Exploitation Details</strong>
+                    </div>
+                    <p>{caseItem.howItHappened.technicalDetails}</p>
+                  </div>
+
+                  <div className="tech-item">
+                    <div className="tech-item-header">
+                      <ShieldCheck size={16} className="tech-icon" />
+                      <strong>Lateral Movement & Persistence</strong>
+                    </div>
+                    <p>{caseItem.howItHappened.exploitationMechanism}</p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Section E: Timeline */}
             {caseItem.timeline && caseItem.timeline.length > 0 && (
               <section id="timeline" className="article-section">
                 <h2 className="section-title">Verified Incident Timeline</h2>
@@ -213,7 +315,7 @@ export default function CaseDetailPage() {
               </section>
             )}
 
-            {/* Section D: Cybersecurity Topics Covered */}
+            {/* Section F: Cybersecurity Topics Covered */}
             <section id="topics" className="article-section">
               <h2 className="section-title">Cybersecurity Concepts & Threats</h2>
               <p className="section-intro-text">
@@ -230,7 +332,7 @@ export default function CaseDetailPage() {
               </div>
             </section>
 
-            {/* Section E: The Law */}
+            {/* Section G: The Law */}
             <section id="law" className="article-section">
               <h2 className="section-title">Applicable Laws & Legal Provisions</h2>
               <p className="section-intro-text">
@@ -269,7 +371,7 @@ export default function CaseDetailPage() {
               </div>
             </section>
 
-            {/* Section F: Documented Impact */}
+            {/* Section H: Documented Impact & Outcome */}
             <section id="impact" className="article-section">
               <h2 className="section-title">Documented Impact & Consequences</h2>
               <div className="impact-metrics-grid">
@@ -281,9 +383,19 @@ export default function CaseDetailPage() {
                   </div>
                 ))}
               </div>
+
+              {caseItem.investigationOutcome && (
+                <div className="investigation-outcome-box">
+                  <div className="outcome-header">
+                    <CheckCircle2 size={20} className="outcome-icon" />
+                    <h3 className="outcome-title">Investigation Outcome & Regulatory Resolution</h3>
+                  </div>
+                  <p className="outcome-text">{caseItem.investigationOutcome}</p>
+                </div>
+              )}
             </section>
 
-            {/* Section G: Key Lessons & Precautions */}
+            {/* Section I: Key Lessons & Takeaways */}
             <section id="lessons" className="article-section">
               <h2 className="section-title">Key Lessons & Recommended Precautions</h2>
               <div className="lessons-container">
@@ -299,9 +411,23 @@ export default function CaseDetailPage() {
                   </div>
                 ))}
               </div>
+
+              {caseItem.takeaways && caseItem.takeaways.length > 0 && (
+                <div className="takeaways-box">
+                  <h3 className="takeaways-title">Core Educational Takeaways</h3>
+                  <ul className="takeaways-list">
+                    {caseItem.takeaways.map((takeaway, idx) => (
+                      <li key={idx} className="takeaway-bullet">
+                        <CheckCircle size={16} className="takeaway-bullet-icon" />
+                        <span>{takeaway}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </section>
 
-            {/* Section H: Resources and References */}
+            {/* Section J: Resources and References */}
             <section id="resources" className="article-section">
               <h2 className="section-title">Authoritative Resources & References</h2>
               <div className="references-list">
@@ -320,7 +446,7 @@ export default function CaseDetailPage() {
               </div>
             </section>
 
-            {/* Section I: Quick Quiz CTA */}
+            {/* Section K: Quick Quiz CTA */}
             <section id="quiz" className="article-section quiz-cta-section">
               <div className="case-quiz-cta-card">
                 <div className="quiz-cta-text">

@@ -143,31 +143,11 @@ export default function CasesPage() {
 
           <div className="cases-hero-visual">
             <div className="globe-card-frame">
-              {/* Modern Cyber Globe Vector */}
-              <svg className="globe-svg" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="320" height="200" rx="16" fill="#0B132B"/>
-                <circle cx="160" cy="100" r="65" fill="#1C2541" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="3 3"/>
-                <ellipse cx="160" cy="100" rx="35" ry="65" fill="none" stroke="#38BDF8" strokeOpacity="0.6" strokeWidth="1.5"/>
-                <line x1="95" y1="100" x2="225" y2="100" stroke="#38BDF8" strokeOpacity="0.6" strokeWidth="1.5"/>
-                
-                {/* Glowing Nodes & Arcs */}
-                <path d="M120 70 Q160 50 200 80" stroke="#4285F4" strokeWidth="2" fill="none"/>
-                <path d="M130 130 Q170 140 210 110" stroke="#34A853" strokeWidth="2" fill="none"/>
-                <circle cx="120" cy="70" r="4" fill="#60A5FA"/>
-                <circle cx="200" cy="80" r="4" fill="#60A5FA"/>
-                <circle cx="130" cy="130" r="4" fill="#34D399"/>
-                <circle cx="210" cy="110" r="4" fill="#F87171"/>
-              </svg>
-
-              <div className="globe-overlay-badge">
-                <div className="globe-icon-box">
-                  <BarChart3 size={18} />
-                </div>
-                <div>
-                  <span className="badge-line-1">Real Cases</span>
-                  <span className="badge-line-2">Global Perspective</span>
-                </div>
-              </div>
+              <img 
+                src="/images/illustrations/cases-globe-hero.png" 
+                alt="Real Cases, Global Perspective" 
+                className="globe-banner-image"
+              />
             </div>
           </div>
         </div>

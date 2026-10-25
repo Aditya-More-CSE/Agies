@@ -39,6 +39,15 @@
   max-width: 320px;
   border-radius: var(--radius-lg);
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.globe-banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  display: block;
+  object-fit: cover;
 }
 
 .globe-svg {

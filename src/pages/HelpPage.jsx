@@ -30,18 +30,11 @@ export default function HelpPage() {
 
           <div className="help-hero-visual">
             <div className="help-shield-frame">
-              {/* Modern 3D/Clean Shield Vector */}
-              <svg className="help-shield-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="90" fill="#E8F0FE" fillOpacity="0.8"/>
-                <circle cx="140" cy="60" r="40" fill="#C2E7FF" fillOpacity="0.5"/>
-                
-                {/* Shield Body */}
-                <path d="M100 35 L145 55 V110 C145 145 100 170 100 170 C100 170 55 145 55 110 V55 Z" fill="#1A73E8"/>
-                <path d="M100 42 L137 59 V108 C137 138 100 160 100 160 C100 160 63 138 63 108 V59 Z" fill="#4285F4"/>
-                
-                {/* Question Mark */}
-                <text x="100" y="122" fill="#FFFFFF" fontFamily="sans-serif" fontSize="52" fontWeight="800" textAnchor="middle">?</text>
-              </svg>
+              <img 
+                src="/images/illustrations/help-shield.png" 
+                alt="Cyber Security Emergency Support Shield" 
+                className="help-shield-image"
+              />
             </div>
           </div>
         </section>
@@ -63,14 +56,12 @@ export default function HelpPage() {
             {/* Card 1: National Portal */}
             <div className="channel-card">
               <div className="channel-header-row">
-                {/* National Emblem SVG */}
                 <div className="emblem-box">
-                  <svg viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="emblem-svg">
-                    <rect x="6" y="38" width="28" height="6" rx="2" fill="#334155"/>
-                    <path d="M20 4 C14 8 10 16 10 24 C10 32 14 36 20 38 C26 36 30 32 30 24 C30 16 26 8 20 4 Z" fill="#475569"/>
-                    <circle cx="20" cy="14" r="5" fill="#64748B"/>
-                    <path d="M14 26 Q20 22 26 26" stroke="#FFFFFF" strokeWidth="2" fill="none"/>
-                  </svg>
+                  <img 
+                    src="/images/illustrations/india-emblem.png" 
+                    alt="National Emblem of India" 
+                    className="emblem-image" 
+                  />
                 </div>
                 <div>
                   <h3 className="channel-title">National Cyber Crime Reporting Portal</h3>
@@ -112,11 +103,11 @@ export default function HelpPage() {
             <div className="channel-card">
               <div className="channel-header-row">
                 <div className="police-crest-box">
-                  <svg viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="crest-svg">
-                    <path d="M20 2 L36 10 V24 C36 35 20 44 20 44 C20 44 4 35 4 24 V10 Z" fill="#B91C1C"/>
-                    <circle cx="20" cy="22" r="10" fill="#FBBF24"/>
-                    <path d="M16 22 L19 25 L25 19" stroke="#B91C1C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <img 
+                    src="/images/illustrations/police-crest.png" 
+                    alt="Police Emergency Crest" 
+                    className="police-crest-image" 
+                  />
                 </div>
                 <div>
                   <h3 className="channel-title">Emergency Number (India)</h3>
