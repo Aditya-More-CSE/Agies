@@ -346,7 +346,7 @@
         "date": "January 2022"
       }
     ],
-    "image": "/images/cases/bank-phishing.png",
+    "image": "/images/cases/bank-phishing.jpg",
     "imageAlt": "Graphic representation of spoofed banking alert and phishing warning",
     "estimatedReadTime": "6 min read",
     "featured": true
@@ -519,7 +519,7 @@
         "date": "May 2017"
       }
     ],
-    "image": "/images/cases/wannacry.png",
+    "image": "/images/cases/wannacry.jpg",
     "imageAlt": "Locked computer screen graphic depicting cryptographic ransomware alert",
     "estimatedReadTime": "7 min read",
     "featured": true
@@ -1486,7 +1486,7 @@
         "date": "May 2017"
       }
     ],
-    "image": "/images/cases/target-breach.svg",
+    "image": "/images/cases/target-breach.jpg",
     "imageAlt": "Retail point of sale terminal graphic with data breach warning shield",
     "estimatedReadTime": "7 min read",
     "featured": false
@@ -2277,7 +2277,7 @@
         "date": "June 8, 2021"
       }
     ],
-    "image": "/images/cases/colonial-pipeline.svg",
+    "image": "/images/cases/colonial-pipeline.jpg",
     "imageAlt": "Graphic of industrial fuel valves and pipeline network with digital warning indicator",
     "estimatedReadTime": "7 min read",
     "featured": false
@@ -2594,7 +2594,7 @@
         "date": "January 2021"
       }
     ],
-    "image": "/images/cases/google-oauth.svg",
+    "image": "/images/cases/google-oauth.jpg",
     "imageAlt": "Graphic showing OAuth permission prompt with deceptive app approval overlay",
     "estimatedReadTime": "6 min read",
     "featured": false
@@ -2752,7 +2752,7 @@
         "date": "November 2023"
       }
     ],
-    "image": "/images/cases/sim-swap.svg",
+    "image": "/images/cases/sim-swap.jpg",
     "imageAlt": "Graphic showing mobile SIM card with network disconnection warning and digital lock",
     "estimatedReadTime": "7 min read",
     "featured": false

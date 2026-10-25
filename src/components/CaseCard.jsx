@@ -39,7 +39,7 @@ export default function CaseCard({ caseItem, viewMode = 'grid' }) {
             className="card-img"
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/images/cases/cambridge-analytica.svg';
+              e.target.src = '/images/cases/cambridge-analytica.jpg';
             }}
           />
           <div className="card-overlay-top">

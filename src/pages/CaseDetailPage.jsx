@@ -181,7 +181,7 @@ export default function CaseDetailPage() {
               className="case-hero-img"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = '/images/cases/cambridge-analytica.svg';
+                e.target.src = '/images/cases/cambridge-analytica.jpg';
               }}
             />
           </div>

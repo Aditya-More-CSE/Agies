@@ -53,7 +53,7 @@ quizzes.forEach(q => {
 });
 console.log(`✅ PASS: Exactly 5 questions per quiz verified (Total: ${totalQuestions} questions)`);
 
-// Test 5: Verify all case SVG images exist
+// Test 5: Verify all case images exist
 cases.forEach(c => {
   const imgPath = path.resolve(__dirname, '../public', c.image.replace(/^\//, ''));
   if (!fs.existsSync(imgPath)) {
@@ -61,7 +61,7 @@ cases.forEach(c => {
     process.exit(1);
   }
 });
-console.log('✅ PASS: All 20 case thumbnail SVG assets verified on disk');
+console.log('✅ PASS: All 20 case thumbnail assets (high-resolution JPGs and editorial vectors) verified on disk');
 
 // Test 6: Verify categories coverage
 const categories = new Set(cases.map(c => c.category));

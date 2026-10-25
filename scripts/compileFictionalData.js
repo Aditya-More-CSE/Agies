@@ -30,25 +30,25 @@ if (allQuizzes.length !== 20) {
   throw new Error(`Expected exactly 20 quizzes, got ${allQuizzes.length}`);
 }
 
-// Map high-fidelity cropped reference images and verified vectors to all 20 cases
+// Map high-fidelity generated editorial illustrations and bespoke vectors to all 20 cases
 const imageMap = {
-  "cambridge-analytica-data-scandal": "/images/cases/cambridge-analytica.png",
-  "indian-bank-phishing-scam": "/images/cases/bank-phishing.png",
-  "wannacry-ransomware-attack": "/images/cases/wannacry.png",
-  "instagram-data-scraping-leak": "/images/cases/instagram-leak.png",
-  "ai-deepfake-ceo-fraud": "/images/cases/deepfake-scams.png",
+  "cambridge-analytica-data-scandal": "/images/cases/cambridge-analytica.jpg",
+  "indian-bank-phishing-scam": "/images/cases/bank-phishing.jpg",
+  "wannacry-ransomware-attack": "/images/cases/wannacry.jpg",
+  "instagram-data-scraping-leak": "/images/cases/instagram-leak.jpg",
+  "ai-deepfake-ceo-fraud": "/images/cases/deepfake-scams.jpg",
   "cyberstalking-and-harassment": "/images/cases/cyberstalking.png",
-  "solarwinds-supply-chain-attack": "/images/cases/solarwinds.png",
-  "upi-payment-gateway-fraud": "/images/cases/upi-scam.png",
-  "target-corporation-breach": "/images/cases/target-breach.svg",
+  "solarwinds-supply-chain-attack": "/images/cases/solarwinds.jpg",
+  "upi-payment-gateway-fraud": "/images/cases/upi-scam.jpg",
+  "target-corporation-breach": "/images/cases/target-breach.jpg",
   "linkedin-credential-scraping": "/images/cases/linkedin-scraping.svg",
   "cosmos-bank-cyber-heist": "/images/cases/cosmos-heist.svg",
-  "equifax-apache-struts-breach": "/images/cases/equifax-breach.svg",
-  "twitter-bitcoin-account-takeover": "/images/cases/twitter-hack.svg",
-  "colonial-pipeline-ransomware": "/images/cases/colonial-pipeline.svg",
+  "equifax-apache-struts-breach": "/images/cases/equifax-breach.jpg",
+  "twitter-bitcoin-account-takeover": "/images/cases/twitter-hack.jpg",
+  "colonial-pipeline-ransomware": "/images/cases/colonial-pipeline.jpg",
   "aiims-delhi-ransomware": "/images/cases/aiims-ransomware.svg",
-  "google-account-phishing-campaigns": "/images/cases/google-oauth.svg",
-  "sim-swap-telecom-fraud": "/images/cases/sim-swap.svg",
+  "google-account-phishing-campaigns": "/images/cases/google-oauth.jpg",
+  "sim-swap-telecom-fraud": "/images/cases/sim-swap.jpg",
   "uber-breach-extortion-coverup": "/images/cases/uber-breach.svg",
   "pegasus-spyware-surveillance": "/images/cases/pegasus-spyware.svg",
   "aadhaar-biometric-security-inquiry": "/images/cases/aadhaar-security.svg"
